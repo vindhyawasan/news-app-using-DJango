@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/news.css' %}">
+    <title>News</title>
+</head>
+<body>
+
+<div class="container">
+
+    <form class="news-search" action="" method="post">
+        {% csrf_token %}
+        <input type="text" id="search" name="search" placeholder="search what news you want">
+        <input type="submit" value="search">
+    </form>
+
+    {% if article %}
+        <p>Title : {{ article.title }}</p>
+        <p>Description : {{ article.description }}</p>
+        <p>Content : {{ article.content }}</p>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
